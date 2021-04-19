@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option java_package = "com.carledwinti.grpcnetty";
+
+service guest{
+    rpc register(RegisterRequest) returns (RegisterResponse);
+    rpc greeting(Empty) returns (DefaultResponse);
+}
+
+message RegisterRequest{
+    string name = 1;
+    string surname = 2;
+}
+
+message RegisterResponse{
+    int32 code = 1;
+    string message = 2;
+    string fullname = 3;
+}
+
+message Empty{
+}
+
+message DefaultResponse{
+    int32 code = 1;
+    string information = 2;
+}
